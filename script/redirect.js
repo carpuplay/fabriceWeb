@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   
     document.getElementById("menu-compte").addEventListener("click", function() {
-      window.location.href = "/fabriceWeb/login/login.php"; // 
+      window.location.href = "/fabriceWeb/auth/login.php"; // 
     });
   
     document.getElementById("menu-projet").addEventListener("click", function() {

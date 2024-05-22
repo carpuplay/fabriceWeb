@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope:700|Manrope:400');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+:root {
+  --text: hsl(0, 0%, 99%);
+  --textDim: hsl(0, 0%, 60%);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: hsl(0, 0%, 7%);
+  width: 100%;
+  overflow: hidden;
+}
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  color: var(--textDim);
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 9999;
+  background: transparent; /* Add background color */
+  padding: 1rem; /* Add padding for spacing */
+}
+
+nav a {
+  color: var(--textDim);
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+.menu:hover {
+  color: var(--text);
+  cursor: pointer;
+}
+
+.sitename {
+  font-weight: bold;
+}
+
+.material-icons {
+  display: none;
+  fill: var(--text);
+}
+
+.ring {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ring i {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fff;
+  transition: 1s;
+}
+.ring i:nth-child(1) {
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  animation: animate 12s linear infinite;
+}
+.ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate 8s linear infinite;
+}
+.ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 20s linear infinite;
+}
+.ring:hover i {
+  border: 6px solid var(--clr);
+  filter: drop-shadow(0 0 20px var(--clr));
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.login {
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.login h2 {
+  font-size: 2em;
+  color: #fff;
+}
+.login .inputBx {
+  position: relative;
+  width: 100%;
+}
+.login .inputBx input {
+  position: relative;
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 40px;
+  font-size: 1.0em;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+  margin-bottom: 10px; /* Add margin-bottom to create space between inputs */
+}
+.login .inputBx input[type="submit"]{
+  width: 100%;
+  background: #0077ff;
+  background: linear-gradient(45deg, #141414, #3240ff);
+  border: none;
+  cursor: pointer;
+  margin-top: 20px; /* Add margin-top to create space */
+}
+
+.login .inputBx input[type="submit"]:hover{
+  background: hsl(51, 100%, 65%);
+  color: #141414;
+  font-weight: bold;
+  transition: filter 0.2s ease;
+  filter: drop-shadow(0 0 20px hsl(51, 100%, 65%));
+}
+
+.login .inputBx input::placeholder {
+  color: hsl(0, 0%, 60%);
+  transition: color 0.3s ease;
+}
+
+.login .links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+.login .links a {
+    color: hsl(0, 0%, 60%);
+    text-decoration: none;
+}
+.login .links a:hover {
+    color: #fdfdfd;
+}
+
+@media screen and (max-width: 1000px) {
+
+  nav > :not(.sitename, .material-icons) {
+    display: none;
+  }
+  
+  nav {
+    justify-content: space-between;
+  }
+  
+  .material-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+}

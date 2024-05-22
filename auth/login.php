@@ -29,7 +29,7 @@ session_unset();
     <i style="--clr:#797979;"></i>
       <div class="login">
           <h2>Se Connecter</h2>
-          <form action="../php/authentification.php" method="post">
+          <form action="/fabriceWeb/php/authentification.php" method="post">
             <div class="inputBx">
               <input type="email" name="email" placeholder="Adresse Mail" autocomplete="on">
             </div>
@@ -42,7 +42,7 @@ session_unset();
           </form>
         <div class="links">
           <a href="#">Mot de passe oublié?</a>
-          <a href="#">S'enregistrer</a>
+          <a href="./register.php">S'enregistrer</a>
         </div>
       </div>
     </div>

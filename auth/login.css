@@ -148,15 +148,17 @@ nav a:hover {
 
 .login .inputBx input[type="submit"]:hover {
   background: hsl(51, 100%, 65%);
-  color:#141414;
+  color: #141414;
   font-weight: bold;
+  transition: filter 0.2s ease;
   filter: drop-shadow(0 0 20px hsl(51, 100%, 65%));
 }
 
 .login .inputBx input::placeholder {
   color: hsl(0, 0%, 60%);
-
+  transition: color 0.3s ease;
 }
+
 .login .links {
   position: relative;
   width: 100%;
