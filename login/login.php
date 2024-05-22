@@ -16,23 +16,23 @@ session_unset();
   <i style="--clr:hsl(51, 100%, 65%);"></i>
   <i style="--clr:#1226ff;"></i>
   <i style="--clr:#797979;"></i>
-  <form action="login.php" method="post">
     <div class="login">
         <h2>Se Connecter</h2>
-        <div class="inputBx">
-        <input type="email" name="email" placeholder="Adresse Mail" autocomplete="on">
-        </div>
-        <div class="inputBx">
-        <input type="password" name="password" placeholder="Mot de passe" autocomplete="on">
-        </div>
-        <div class="inputBx">
-        <input type="submit" name="submit" value="Se connecter" autocomplete="on">
-        </div>
-    </div>
-    </form>
-    <div class="links">
-      <a href="#">Mot de passe oublié?</a>
-      <a href="#">S'enregistrer</a>
+        <form action="../php/authentification.php" method="post">
+          <div class="inputBx">
+            <input type="email" name="email" placeholder="Adresse Mail" autocomplete="on">
+          </div>
+          <div class="inputBx">
+            <input type="password" name="password" placeholder="Mot de passe" autocomplete="on">
+          </div>
+          <div class="inputBx">
+            <input type="submit" name="submit" value="Se connecter">
+          </div>
+        </form>
+      <div class="links">
+        <a href="#">Mot de passe oublié?</a>
+        <a href="#">S'enregistrer</a>
+      </div>
     </div>
   </div>
 </div>
