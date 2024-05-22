@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 22-05-2024 a las 12:56:19
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 23-05-2024 a las 00:30:21
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,7 +64,7 @@ CREATE TABLE `users` (
   `datenaissance` date NOT NULL,
   `numetudiant` int(8) NOT NULL,
   `email` varchar(64) NOT NULL,
-  `password` varchar(64) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `nbrUtilisations` int(11) NOT NULL DEFAULT 0,
   `formation` tinyint(1) DEFAULT NULL,
   `heureOperation` time DEFAULT NULL,
@@ -72,8 +72,15 @@ CREATE TABLE `users` (
   `lastLogin` datetime NOT NULL,
   `dateCreation` datetime NOT NULL,
   `avatar` int(11) NOT NULL DEFAULT 1,
-  `numeroTel` int(11) NOT NULL
+  `numeroTel` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`userID`, `nom`, `prenom`, `datenaissance`, `numetudiant`, `email`, `password`, `nbrUtilisations`, `formation`, `heureOperation`, `emailVerification`, `lastLogin`, `dateCreation`, `avatar`, `numeroTel`) VALUES
+(1, 'Alexandru', 'Carp', '2005-10-25', 22301574, 'acarpmihai2005@gmail.com', '$2y$10$aGtpEPemU5EPIdJoKgqoyeM.Q9m52ruDPep/jdty52WjmDW5et/n6', 0, NULL, NULL, NULL, '2024-05-23 00:26:15', '2024-05-23 00:24:56', 1, '0670496227');
 
 --
 -- Índices para tablas volcadas
@@ -89,7 +96,9 @@ ALTER TABLE `trajets`
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
-  ADD UNIQUE KEY `ID` (`userID`);
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `idx_numetudiant` (`numetudiant`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -99,7 +108,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
