@@ -89,6 +89,7 @@ body {
   color: #fff;
   box-shadow: none;
   outline: none;
+  margin-bottom: 10px; /* Add margin-bottom to create space between inputs */
 }
 .login .inputBx input[type="submit"] {
   width: 100%;
@@ -96,7 +97,16 @@ body {
   background: linear-gradient(45deg, #141414, #3240ff);
   border: none;
   cursor: pointer;
+  margin-top: 20px; /* Add margin-top to create space */
 }
+
+.login .inputBx input[type="submit"]:hover {
+  background: hsl(51, 100%, 65%);
+  color:#141414;
+  font-weight: bold;
+  filter: drop-shadow(0 0 20px hsl(51, 100%, 65%));
+}
+
 .login .inputBx input::placeholder {
   color: hsl(0, 0%, 60%);
 
