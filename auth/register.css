@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Manrope:700|Manrope:400');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +10,8 @@
 :root {
   --text: hsl(0, 0%, 99%);
   --textDim: hsl(0, 0%, 60%);
+  --primary: #0077ff;
+  --highlight: hsl(51, 100%, 65%);
 }
 
 body {
@@ -19,9 +22,11 @@ body {
   background: hsl(0, 0%, 7%);
   width: 100%;
   overflow: hidden;
+  padding-top: 60px; /* Space for the navigation bar */
 }
+
 nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -32,8 +37,8 @@ nav {
   width: 100%;
   box-sizing: border-box;
   z-index: 9999;
-  background: transparent; /* Add background color */
-  padding: 1rem; /* Add padding for spacing */
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem 2rem;
 }
 
 nav a {
@@ -63,34 +68,41 @@ nav a:hover {
 
 .ring {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: -1; /* Places the ring behind the form */
 }
+
 .ring i {
   position: absolute;
   inset: 0;
   border: 2px solid #fff;
   transition: 1s;
 }
+
 .ring i:nth-child(1) {
   border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   animation: animate 12s linear infinite;
 }
+
 .ring i:nth-child(2) {
-  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
   animation: animate 8s linear infinite;
 }
+
 .ring i:nth-child(3) {
-  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
   animation: animate2 20s linear infinite;
 }
+
 .ring:hover i {
-  border: 6px solid var(--clr);
-  filter: drop-shadow(0 0 20px var(--clr));
+  border: 6px solid var(--highlight);
+  filter: drop-shadow(0 0 20px var(--highlight));
 }
+
 @keyframes animate {
   0% {
     transform: rotate(0deg);
@@ -99,6 +111,7 @@ nav a:hover {
     transform: rotate(360deg);
   }
 }
+
 @keyframes animate2 {
   0% {
     transform: rotate(360deg);
@@ -107,24 +120,33 @@ nav a:hover {
     transform: rotate(0deg);
   }
 }
+
 .login {
-  position: absolute;
-  width: 300px;
-  height: 100%;
+  position: relative;
+  width: 90%;
+  max-width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 20px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  z-index: 1; /* Ensure the form is in front of the ring */
 }
+
 .login h2 {
   font-size: 2em;
   color: #fff;
+  text-align: center;
 }
+
 .login .inputBx {
   position: relative;
   width: 100%;
 }
+
 .login .inputBx input {
   position: relative;
   width: 100%;
@@ -132,63 +154,58 @@ nav a:hover {
   background: transparent;
   border: 2px solid #ffffff;
   border-radius: 40px;
-  font-size: 1.0em;
+  font-size: 1em;
   color: #fff;
   box-shadow: none;
   outline: none;
-  margin-bottom: 10px; /* Add margin-bottom to create space between inputs */
+  margin-bottom: 10px;
 }
-.login .inputBx input[type="submit"]{
+
+.login .inputBx input:focus {
+  border-color: var(--highlight);
+  box-shadow: 0 0 10px var(--highlight);
+}
+
+.login .inputBx input[type="submit"],
+.login .inputBx input[type="button"] {
   width: 100%;
-  background: #0077ff;
+  background: var(--primary);
   background: linear-gradient(45deg, #141414, #3240ff);
   border: none;
   cursor: pointer;
-  margin-top: 20px; /* Add margin-top to create space */
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.login .inputBx input[type="submit"]:hover{
-  background: hsl(51, 100%, 65%);
+.login .inputBx input[type="submit"]:hover,
+.login .inputBx input[type="button"]:hover {
+  background: var(--highlight);
   color: #141414;
   font-weight: bold;
   transition: filter 0.2s ease;
-  filter: drop-shadow(0 0 20px hsl(51, 100%, 65%));
+  filter: drop-shadow(0 0 20px var(--highlight));
 }
 
 .login .inputBx input::placeholder {
-  color: hsl(0, 0%, 60%);
+  color: var(--textDim);
   transition: color 0.3s ease;
 }
 
+
 .login .links {
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
 }
+
 .login .links a {
-    color: hsl(0, 0%, 60%);
-    text-decoration: none;
+  color: var(--textDim);
+  text-decoration: none;
 }
+
 .login .links a:hover {
-    color: #fdfdfd;
-}
-
-@media screen and (max-width: 1000px) {
-
-  nav > :not(.sitename, .material-icons) {
-    display: none;
-  }
-  
-  nav {
-    justify-content: space-between;
-  }
-  
-  .material-icons {
-    display: flex;
-    align-items: center;
-  }
-  
+  color: #fdfdfd;
 }

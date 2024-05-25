@@ -17,14 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize inputs
     $nom = htmlspecialchars(trim($_POST['nom']));
     $prenom = htmlspecialchars(trim($_POST['prenom']));
-    $datenaissance = htmlspecialchars(trim($_POST['datenaissance']));
     $numetudiant = htmlspecialchars(trim($_POST['numetudiant']));
     $email = htmlspecialchars(trim($_POST['email']));
     $password = trim($_POST['password']);
     $numeroTel = htmlspecialchars(trim($_POST['numerotel']));
 
     // Validate inputs
-    if (empty($nom) || empty($prenom) || empty($datenaissance) || empty($numetudiant) || empty($email) || empty($password) || empty($numeroTel)) {
+    if (empty($nom) || empty($prenom) || empty($numetudiant) || empty($email) || empty($password) || empty($numeroTel)) {
         die("All fields are required.");
     }
 
@@ -47,11 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // Store in the database
-        $stmt = $pdo->prepare('INSERT INTO users (nom, prenom, datenaissance, numetudiant, email, password, numeroTel, lastLogin, dateCreation) VALUES (:nom, :prenom, :datenaissance, :numetudiant, :email, :password, :numeroTel, NOW(), NOW())');
+        $stmt = $pdo->prepare('INSERT INTO users (nom, prenom, numetudiant, email, password, numeroTel, lastLogin, dateCreation) VALUES (:nom, :prenom, :numetudiant, :email, :password, :numeroTel, NOW(), NOW())');
         $stmt->execute([
             ':nom' => $nom,
             ':prenom' => $prenom,
-            ':datenaissance' => $datenaissance,
             ':numetudiant' => $numetudiant,
             ':email' => $email,
             ':password' => $hashed_password,
@@ -69,4 +67,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("There was an error registering the user.");
     }
 }
+
 ?>
