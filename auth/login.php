@@ -3,8 +3,9 @@
 <head>
  	<meta charset="UTF-8">
 	<title>FabRice - Se connecter</title>
+  <link rel="icon" href="/fabriceWeb/assets/dark_favicon.ico">
 	<link rel="stylesheet" href="./login.css">
-  <script src="/fabriceWeb/script/redirect.js"></script>  
+  <script src="/fabriceWeb/script/header.js"></script>  
 </head>
 
 <?php

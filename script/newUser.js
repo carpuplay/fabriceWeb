@@ -73,35 +73,35 @@ document.addEventListener("DOMContentLoaded", () => {
         const hasLowerCase = /[a-z]/.test(password);
         const hasNumbers = /[0-9]/.test(password);
         const hasSpecialChars = /[!@#$%^&*+-_()<>\[\]]/.test(password);
-    
+
         return password.length >= minLength && hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChars;
     }
-    
+
     function validateStep2() {
         const email = document.querySelector('input[name="email"]');
         const password = document.querySelector('input[name="password"]');
         const confirmPassword = document.querySelector('input[name="password-confirm"]');
         let valid = true;
-    
+
         clearError(email);
         clearError(password);
         clearError(confirmPassword);
-    
+
         if (!validateEmail(email.value)) {
             displayError(email, "Veuillez entrer une adresse email valide.");
             valid = false;
         }
-    
+
         if (!validatePasswordStrength(password.value)) {
             displayError(password, "Le mot de passe doit contenir au moins 8 caractères, incluant des majuscules, minuscules, chiffres et caractères spéciaux.");
             valid = false;
         }
-    
+
         if (password.value !== confirmPassword.value) {
             displayError(confirmPassword, "Les mots de passe ne correspondent pas.");
             valid = false;
         }
-    
+
         if (valid) {
             nextStep();
         }
@@ -122,6 +122,16 @@ document.addEventListener("DOMContentLoaded", () => {
             nextStep();
         }
     }
+
+    document.getElementById('multiStepForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        validateStep3();
+
+        if (currentStep === 2) {
+            this.submit();
+        }
+    });
 
     window.validateStep1 = validateStep1;
     window.validateStep2 = validateStep2;

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>FabRice - S'inscrire</title>
+    <link rel="icon" href="/fabriceWeb/assets/dark_favicon.ico">
     <link rel="stylesheet" href="./login.css">
-    <script src="/fabriceWeb/script/redirect.js"></script>
+    <script src="/fabriceWeb/script/header.js"></script>
     <script src="/fabriceWeb/script/newUser.js" defer></script>
     <style>
         .step {
@@ -49,6 +50,15 @@ session_unset();
 ?>
 
 <body>
+    <nav>
+        <p class="sitename" id="menu-index">FabRice</p>
+        <p class="menu" id="menu-reserver">Réserver</p>
+        <p class="menu" id="menu-about">Qui est FabRice?</p>
+        <p class="menu" id="menu-compte">Mon Compte</p>
+        <p class="menu" id="menu-projet">Le Projet</p>
+        <p class="menu" id="menu-legal">Légal</p>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 9H5c-.55 0-1 .45-1 1s.45 1 1 1h14c.55 0 1-.45 1-1s-.45-1-1-1zM5 15h14c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+    </nav>
     <div class="ring">
         <i style="--clr:hsl(51, 100%, 65%);"></i>
         <i style="--clr:#1226ff;"></i>
@@ -108,6 +118,5 @@ session_unset();
             </div>
         </div>
     </div>
-
 </body>
 </html>

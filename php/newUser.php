@@ -27,6 +27,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("All fields are required.");
     }
 
+    // Validate name fields
+    if (strlen($nom) < 2) {
+        die("Le nom doit contenir au moins 2 caractères.");
+    }
+
+    if (strlen($prenom) < 2) {
+        die("Le prénom doit contenir au moins 2 caractères.");
+    }
+
+    // Validate student number
+    if (strlen($numetudiant) !== 8 || !is_numeric($numetudiant)) {
+        die("Le numéro d'étudiant doit contenir 8 chiffres.");
+    }
+
     // Validate email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die("Invalid email format.");
@@ -37,8 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         !preg_match("/[A-Z]/", $password) || 
         !preg_match("/[a-z]/", $password) || 
         !preg_match("/[0-9]/", $password) || 
-        !preg_match("/[!@#$%^&*]/", $password)) {
+        !preg_match("/[!@#$%^&*+\-_()<>\[\]]/", $password)) {
         die("Password must be at least 8 characters long and include a mix of upper/lower case letters, numbers, and special characters.");
+    }
+
+    // Validate phone number
+    if (strlen($numeroTel) !== 10 || !is_numeric($numeroTel)) {
+        die("Le numéro de téléphone doit contenir 10 chiffres.");
     }
 
     // Hash the password
@@ -67,5 +86,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("There was an error registering the user.");
     }
 }
-
 ?>
