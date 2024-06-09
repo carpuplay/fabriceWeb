@@ -15,10 +15,10 @@ function generateConfirmationCode() {
 function sendConfirmationEmail($email, $code) {
     // Send the email
     $mail = new PHPMailer();
-    $mail->setFrom('noreply@example.com', 'Your Website');
+    $mail->setFrom('noreply@farbrice.fr', 'Fabrice le robot autonome');
     $mail->addAddress($email);
     $mail->Subject = 'Email Confirmation';
-    $mail->Body = 'Please click the following link to confirm your email: http://localhost/fabriceWeb/confirm.php?code=' . $code;
+    $mail->Body = 'Please click the following link to confirm your email: http://localhost/fabriceWeb/confirmEmail.php?code=' . $code;
     $mail->send();
     */
 }
