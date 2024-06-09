@@ -1,7 +1,4 @@
-<!-- ⚠️ This README has been generated from the file(s) "blueprint.md" ⚠️-->
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#fabriceweb)
-
-# ➤ fabriceWeb
+# fabriceWeb
 
 ![Static Badge](https://img.shields.io/badge/HTML-grey)
 ![Static Badge](https://img.shields.io/badge/CSS-grey)
